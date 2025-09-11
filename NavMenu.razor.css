@@ -1,0 +1,86 @@
+﻿.navbar-toggler {
+    border: none;
+    background: transparent;
+    color: #fff;
+}
+
+.nav-scrollable {
+    position: fixed;
+    top: var(--top-h);
+    bottom: 0;
+    left: 0;
+    width: var(--sidebar-w);
+    overflow-y: auto;
+    background: var(--brand-dark);
+    color: #fff;
+    transition: transform .3s;
+    padding: .5rem .25rem;
+    /* Sobrescribe variables de Bootstrap dentro del sidebar */
+    --bs-link-color: #fff;
+    --bs-link-hover-color: #fff;
+    --bs-nav-link-color: #fff;
+    --bs-nav-link-hover-color: #fff;
+}
+
+/* Lista vertical */
+.nav.flex-column {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+/* Asegura mismo layout */
+.nav-item .nav-link {
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+}
+
+/* === COLOR FORZADO EN TODOS LOS ESTADOS === */
+.nav-scrollable .nav-link,
+.nav-scrollable .nav-link:link,
+.nav-scrollable .nav-link:visited,
+.nav-scrollable .nav-link:hover,
+.nav-scrollable .nav-link:active,
+.nav-scrollable .nav-link:focus {
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.nav-link {
+    opacity: .9;
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+    padding: .6rem 1rem;
+    border-radius: .5rem;
+    margin: .25rem .5rem;
+}
+
+    .nav-link:hover {
+        opacity: 1;
+        background: rgba(255,255,255,.10);
+    }
+
+    .nav-link.active {
+        color: #fff !important;
+        background: rgba(255,255,255,.18);
+        border-left: 4px solid var(--brand);
+    }
+
+/* Asegura que los hijos (icono/texto) hereden el color */
+.nav-scrollable .nav-link > span {
+    color: inherit;
+}
+
+/* Mobile: sidebar en overlay */
+@media (max-width:992px) {
+    .nav-scrollable {
+        width: min(80vw,320px);
+        transform: translateX(-100%);
+    }
+
+    .navbar-toggler-checkbox:checked ~ .nav-scrollable {
+        transform: translateX(0);
+    }
+}

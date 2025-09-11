@@ -1,0 +1,97 @@
+﻿@page "/use-template/{TemplateId}"
+@inherits UseTemplateBase
+
+<div class="card">
+    <div class="card-body">
+        <h2>Usar Plantilla</h2>
+
+        @if (isLoading)
+        {
+            <p>Cargando...</p>
+        }
+        else if (loadError is not null)
+        {
+            <div class="alert alert-danger">@loadError</div>
+        }
+        else if (template is null)
+        {
+            <div class="alert alert-warning">No se encontró la plantilla.</div>
+        }
+        else
+        {
+            <div class="mb-2 text-muted">
+                <strong>Nombre:</strong> @template.Name · <strong>Idioma:</strong> @template.Language · <strong>Estatus:</strong> @template.Status
+            </div>
+
+            <h6 class="text-muted mb-2">Selecciona un usuario del catálogo</h6>
+            <div class="row g-2 align-items-end">
+                <div class="col-md-6">
+                    <label class="form-label">Usuario</label>
+                    <select class="form-select" @onchange="OnUserChanged">
+                        <option value="">-- Selecciona --</option>
+                        @foreach (var u in users)
+                        {
+                            <option value="@u.UserId">@($"{u.FullName} · {u.PhoneNumber}")</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Número destino</label>
+                    <input class="form-control" @bind="PhoneNumber" placeholder="52155..." />
+                </div>
+            </div>
+
+            <hr />
+
+            @if (hasHeaderImage)
+            {
+                <div class="mb-3">
+                    <label class="form-label">Header · URL de imagen</label>
+                    <input class="form-control" @bind="HeaderImageUrl" placeholder="https://..." />
+                </div>
+            }
+
+            @if (bodyParams.Count > 0)
+            {
+                <h6 class="text-muted">Parámetros del cuerpo</h6>
+                @for (int i = 0; i < bodyParams.Count; i++)
+                {
+                    <div class="mb-3">
+                        <label class="form-label">Body param @(@i + 1)</label>
+                        <input class="form-control" @bind="bodyParams[i]" />
+                    </div>
+                }
+            }
+
+            @if (buttonQuickReplies.Count > 0)
+            {
+                <h6 class="text-muted">Botones rápidos</h6>
+                @for (int i = 0; i < buttonQuickReplies.Count; i++)
+                {
+                    <div class="mb-3">
+                        <label class="form-label">Payload botón @(@i + 1)</label>
+                        <input class="form-control" @bind="buttonQuickReplies[i]" />
+                    </div>
+                }
+            }
+
+            <div class="d-flex gap-2 mt-3">
+                <button class="btn btn-primary" @onclick="SendTemplateAsync">Enviar mensaje</button>
+                <a class="btn btn-outline-secondary" href="/templates">Regresar</a>
+            </div>
+
+            @if (sendMessage is not null)
+            {
+                <details class="mt-3">
+                    <summary class="small text-muted">Ver payload</summary>
+                    <pre class="mb-0" style="white-space:pre-wrap;">@sendMessage</pre>
+                </details>
+            }
+
+            @if (sendResult is not null)
+            {
+                <div class="alert alert-info mt-3">@sendResult</div>
+            }
+        }
+    </div>
+</div>

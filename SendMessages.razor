@@ -1,0 +1,59 @@
+﻿@page "/send-messages"
+@inherits SendMessagesBase
+
+<div class="page">
+    <div class="card">
+        <h2>Enviar mensaje</h2>
+
+        <div class="form-group">
+            <label>Número</label>
+            <input class="form-control" @bind="PhoneNumber" />
+        </div>
+
+        <div class="form-group">
+            <label>Mensaje</label>
+            <textarea class="form-control" @bind="MessageText"></textarea>
+        </div>
+
+        <div class="radio-group">
+            <label><input type="radio" name="tipo" value="text" checked @onchange="ToggleMessageOptions" /> Texto</label>
+            <label><input type="radio" name="tipo" value="buttons" @onchange="ToggleMessageOptions" /> Botones</label>
+            <label><input type="radio" name="tipo" value="list" @onchange="ToggleMessageOptions" /> Lista</label>
+        </div>
+
+        <div class="mt-3 d-flex justify-content-start">
+            <button class="btn btn-primary" @onclick="SendMessageAsync">Enviar Mensaje</button>
+            <button class="btn btn-secondary ms-2" @onclick="PreviewMessage">Vista previa</button>
+        </div>
+
+        @if (ShowErrorModal)
+        {
+            <div class="modal fade show d-block custom-modal-backdrop">
+                <div class="modal-dialog custom-modal">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger text-white">
+                            <h5 class="modal-title">Error</h5>
+                            <button type="button" class="btn-close" @onclick="() => ShowErrorModal = false"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>@ErrorMessage</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" @onclick="() => ShowErrorModal = false">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+        @if (!string.IsNullOrWhiteSpace(PreviewText))
+        {
+            <div class="template-preview mt-3">
+                <div class="border p-2 rounded bg-light">
+                    @((MarkupString)PreviewText)
+                </div>
+            </div>
+        }
+    </div>
+</div>
