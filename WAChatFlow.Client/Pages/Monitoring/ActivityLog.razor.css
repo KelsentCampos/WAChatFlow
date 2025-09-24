@@ -1,0 +1,123 @@
+﻿.log-table-wrap {
+    max-height: 62vh;
+    overflow: auto;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    background: var(--surface);
+}
+
+.logs-table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+    .logs-table thead th {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background: #F7F9FB;
+    }
+
+    .logs-table th, .logs-table td {
+        padding: 8px 12px;
+    }
+
+@media (min-width: 992px) {
+    .logs-table th, .logs-table td {
+        padding: 10px 14px;
+    }
+}
+
+.logs-table th:nth-child(1),
+.logs-table td:nth-child(1) {
+    width: 20ch;
+    white-space: nowrap;
+    color: var(--text-muted);
+}
+
+.logs-table th:nth-child(2),
+.logs-table td:nth-child(2) {
+    width: 24ch;
+    white-space: nowrap;
+}
+
+.logs-table th:nth-child(3),
+.logs-table td:nth-child(3) {
+    width: 14ch;
+    white-space: nowrap;
+}
+
+.logs-table th:nth-child(4),
+.logs-table td:nth-child(4) {
+    width: 14ch;
+    white-space: nowrap;
+}
+
+.logs-table th:nth-child(5),
+.logs-table td:nth-child(5) {
+    width: auto;
+}
+
+.log-id {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    font-size: .9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.logs-table td .btn {
+    width: auto;
+    flex: 0 0 auto;
+}
+
+.logs-actions {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+
+.badge {
+    position: relative;
+    padding-left: 20px;
+}
+
+    .badge::before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+
+.badge-success::before {
+    background: #28a745;
+}
+
+.badge-warning::before {
+    background: #ffc107;
+}
+
+.badge-danger::before {
+    background: #dc3545;
+}
+
+.badge-secondary {
+    background: #e2e3e5;
+    color: #41464b;
+}
+
+    .badge-secondary::before {
+        background: #6c757d;
+    }
+
+@media (max-width: 576px) {
+    .logs-table th, .logs-table td {
+        white-space: normal;
+        word-break: break-word;
+    }
+}

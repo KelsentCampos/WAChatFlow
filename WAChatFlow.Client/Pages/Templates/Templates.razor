@@ -1,0 +1,139 @@
+﻿@page "/templates"
+@inherits TemplatesBase
+
+<div class="page">
+    <div class="card">
+        <div class="card-body">
+            <h2>Plantillas Disponibles</h2>
+
+            @if (templates is null || templates.Count == 0)
+            {
+                <p>No hay plantillas disponibles.</p>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Idioma</th>
+                                <th>Estatus</th>
+                                <th>Categoría</th>
+                                @* <th>Subcategoría</th> *@
+                                @* <th>Componentes</th> *@
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < templates.Count; i++)
+                            {
+                                var template = templates[i];
+
+                                var compsCount = (template.Components is null) ? 0 : template.Components.Count;
+
+                                <tr>
+                                    <td>@template.Name</td>
+                                    <td>@template.Language</td>
+                                    <td>
+                                        <span class="badge @GetBadgeClass(template.Status)">@template.Status</span>
+                                    </td>
+                                    <td>@template.Category</td>
+                                    @* <td>@template.SubCategory</td> *@
+                                    @* <td>@compsCount</td> *@
+                                    <td>
+                                        <button class="btn btn-sm btn-primary" @onclick="() => UsarPlantilla(template.Id)">Usar</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="7" class="pt-0">
+                                        <details class="mt-2">
+                                            <summary class="text-muted">Ver Detalle</summary>
+
+                                            <div class="mt-3">
+                                                @if (template.Components is not null && template.Components.Count > 0)
+                                                {
+                                                    <div class="mt-3">
+                                                        <h6>Componentes</h6>
+
+                                                        @for (int c = 0; c < template.Components.Count; c++)
+                                                        {
+                                                            var comp = template.Components[c];
+
+                                                            <div class="border rounded p-2 mb-2">
+                                                                <div class="d-flex justify-content-between align-items-center">
+                                                                    <div>
+                                                                        <strong>Tipo:</strong> @comp.Type
+                                                                        @if (!string.IsNullOrWhiteSpace(comp.Format))
+                                                                        {
+                                                                            <span class="ms-2"><strong>Formato:</strong> @comp.Format</span>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="small text-muted">
+                                                                        @if (comp.AddSecurityRecommendation.HasValue && comp.AddSecurityRecommendation.Value)
+                                                                        {
+                                                                            <span class="me-3">Recomendación de seguridad</span>
+                                                                        }
+                                                                        @if (comp.CodeExpirationMinutes.HasValue)
+                                                                        {
+                                                                            <span>Expira: @comp.CodeExpirationMinutes min</span>
+                                                                        }
+                                                                    </div>
+                                                                </div>
+
+                                                                @if (!string.IsNullOrEmpty(comp.Text))
+                                                                {
+                                                                    <div class="mt-2">
+                                                                        <div class="small text-muted">Texto</div>
+                                                                        <pre class="mb-0" style="white-space:pre-wrap;">@comp.Text</pre>
+                                                                    </div>
+                                                                }
+
+                                                                @if (comp.Buttons is not null && comp.Buttons.Count > 0)
+                                                                {
+                                                                    <div class="mt-2">
+                                                                        <div class="small text-muted mb-1">Botones</div>
+                                                                        <div class="d-flex flex-wrap">
+                                                                            @for (int b = 0; b < comp.Buttons.Count; b++)
+                                                                            {
+                                                                                var btn = comp.Buttons[b];
+                                                                                <div class="me-2 mb-2">
+                                                                                    <span class="badge bg-light text-dark border">
+                                                                                        <strong>@btn.Type</strong> @if (!string.IsNullOrEmpty(btn.Text)) {
+                                                                                        <text>· "@btn.Text"</text>
+                                                                                    }
+                                                                                </span>
+                                                                                @* @if (!string.IsNullOrWhiteSpace(btn.Url))
+                                                                            {
+                                                                                <span class="ms-2 small text-muted">URL: @btn.Url</span>
+                                                                            }
+                                                                            @if (!string.IsNullOrWhiteSpace(btn.PhoneNumber))
+                                                                            {
+                                                                                <span class="ms-2 small text-muted">Tel: @btn.PhoneNumber</span>
+                                                                            } *@
+                                                                            </div>
+                                                                        }
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    }
+                                                </div>
+                                            }
+                                                                                else
+                                            {
+                                                <div class="text-muted">Sin componentes.</div>
+                                            }
+                                        </div>
+                                    </details>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+                        }
+        </div>
+    </div>
+</div>
