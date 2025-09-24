@@ -1,0 +1,19 @@
+﻿@inherits NavMenuBase
+
+<input id="navCheck" class="navbar-toggler-checkbox" type="checkbox" hidden />
+
+<aside class="nav-scrollable">
+    <nav class="p-3">
+        <ul class="nav flex-column gap-1">
+            @foreach (var it in Items)
+            {
+                <li class="nav-item" @onclick="CloseMenu">
+                    <NavLink href="@it.Href" Match="@it.Match" class="nav-link">
+                        <span>@it.Icon</span>
+                        <span> @it.Text</span>
+                    </NavLink>
+                </li>
+            }
+        </ul>
+    </nav>
+</aside>

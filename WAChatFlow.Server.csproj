@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Utilities\**" />
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="Utilities\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="Utilities\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="Utilities\**" />
+    <None Remove="wwwroot\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WAChatFlow.Client\WAChatFlow.Client.csproj" />
+    <ProjectReference Include="..\WAChatFlow.Shared\WAChatFlow.Shared.csproj" />
+    <PackageReference Include="Dapper" Version="2.1.66" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.19" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,284 @@
+/* /Pages/Contacts/Contacts.razor.rz.scp.css */
+.card h2[b-l7arff5hdi] {
+    margin-bottom: 6px;
+}
+/* /Pages/Messages/Messages.razor.rz.scp.css */
+/* Página Enviar Mensaje: específicos */
+.card h2[b-6ce8ujvs4t] {
+    margin-bottom: 12px;
+}
+
+.actions[b-6ce8ujvs4t] {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.template-preview[b-6ce8ujvs4t] {
+    background: #F7F9FB;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 16px;
+    border-left: 4px solid var(--brand);
+}
+/* /Pages/Monitoring/ActivityLog.razor.rz.scp.css */
+.log-table-wrap[b-7ap3e4s8cm] {
+    max-height: 62vh;
+    overflow: auto;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    background: var(--surface);
+}
+
+.logs-table[b-7ap3e4s8cm] {
+    table-layout: fixed;
+    width: 100%;
+}
+
+    .logs-table thead th[b-7ap3e4s8cm] {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background: #F7F9FB;
+    }
+
+    .logs-table th[b-7ap3e4s8cm], .logs-table td[b-7ap3e4s8cm] {
+        padding: 8px 12px;
+    }
+
+@media (min-width: 992px) {
+    .logs-table th[b-7ap3e4s8cm], .logs-table td[b-7ap3e4s8cm] {
+        padding: 10px 14px;
+    }
+}
+
+.logs-table th:nth-child(1)[b-7ap3e4s8cm],
+.logs-table td:nth-child(1)[b-7ap3e4s8cm] {
+    width: 20ch;
+    white-space: nowrap;
+    color: var(--text-muted);
+}
+
+.logs-table th:nth-child(2)[b-7ap3e4s8cm],
+.logs-table td:nth-child(2)[b-7ap3e4s8cm] {
+    width: 24ch;
+    white-space: nowrap;
+}
+
+.logs-table th:nth-child(3)[b-7ap3e4s8cm],
+.logs-table td:nth-child(3)[b-7ap3e4s8cm] {
+    width: 14ch;
+    white-space: nowrap;
+}
+
+.logs-table th:nth-child(4)[b-7ap3e4s8cm],
+.logs-table td:nth-child(4)[b-7ap3e4s8cm] {
+    width: 14ch;
+    white-space: nowrap;
+}
+
+.logs-table th:nth-child(5)[b-7ap3e4s8cm],
+.logs-table td:nth-child(5)[b-7ap3e4s8cm] {
+    width: auto;
+}
+
+.log-id[b-7ap3e4s8cm] {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    font-size: .9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.logs-table td .btn[b-7ap3e4s8cm] {
+    width: auto;
+    flex: 0 0 auto;
+}
+
+.logs-actions[b-7ap3e4s8cm] {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+
+.badge[b-7ap3e4s8cm] {
+    position: relative;
+    padding-left: 20px;
+}
+
+    .badge[b-7ap3e4s8cm]::before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+
+.badge-success[b-7ap3e4s8cm]::before {
+    background: #28a745;
+}
+
+.badge-warning[b-7ap3e4s8cm]::before {
+    background: #ffc107;
+}
+
+.badge-danger[b-7ap3e4s8cm]::before {
+    background: #dc3545;
+}
+
+.badge-secondary[b-7ap3e4s8cm] {
+    background: #e2e3e5;
+    color: #41464b;
+}
+
+    .badge-secondary[b-7ap3e4s8cm]::before {
+        background: #6c757d;
+    }
+
+@media (max-width: 576px) {
+    .logs-table th[b-7ap3e4s8cm], .logs-table td[b-7ap3e4s8cm] {
+        white-space: normal;
+        word-break: break-word;
+    }
+}
+/* /Pages/Templates/Templates.razor.rz.scp.css */
+    .card h2[b-nqc40q4h5n] {
+    margin-bottom: 12px;
+}
+
+td .btn[b-nqc40q4h5n] {
+    margin-left: .25rem;
+}
+/* /Shared/Layout/MainLayout.razor.rz.scp.css */
+.main-layout-container[b-jqnbq5qqrc] {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+.top-row[b-jqnbq5qqrc] {
+    height: var(--top-h);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 1px 5px rgba(0,0,0,.1);
+    background: var(--brand-dark) !important;
+    display: flex;
+    align-items: center;
+    padding-inline: 16px;
+}
+
+/* El main se ajusta al ancho disponible según sidebar */
+.main-content[b-jqnbq5qqrc] {
+    margin-left: var(--sidebar-w);
+    padding: clamp(16px,2.5vw,32px);
+    width: calc(100% - var(--sidebar-w));
+    background: var(--bg);
+    color: var(--text);
+    flex: 1;
+}
+
+.content-wrapper[b-jqnbq5qqrc] {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+@media (max-width:992px) {
+    .main-content[b-jqnbq5qqrc] {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+/* /Shared/Navigation/NavMenu.razor.rz.scp.css */
+.navbar-toggler[b-1v1z0d25i1] {
+    border: none;
+    background: transparent;
+    color: #fff;
+}
+
+.nav-scrollable[b-1v1z0d25i1] {
+    position: fixed;
+    top: var(--top-h);
+    bottom: 0;
+    left: 0;
+    width: var(--sidebar-w);
+    overflow-y: auto;
+    background: var(--brand-dark);
+    color: #fff;
+    transition: transform .3s;
+    padding: .5rem .25rem;
+    /* Sobrescribe variables de Bootstrap dentro del sidebar */
+    --bs-link-color: #fff;
+    --bs-link-hover-color: #fff;
+    --bs-nav-link-color: #fff;
+    --bs-nav-link-hover-color: #fff;
+}
+
+/* Lista vertical */
+.nav.flex-column[b-1v1z0d25i1] {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+/* Asegura mismo layout */
+.nav-item .nav-link[b-1v1z0d25i1] {
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+}
+
+/* === COLOR FORZADO EN TODOS LOS ESTADOS === */
+.nav-scrollable .nav-link[b-1v1z0d25i1],
+.nav-scrollable .nav-link:link[b-1v1z0d25i1],
+.nav-scrollable .nav-link:visited[b-1v1z0d25i1],
+.nav-scrollable .nav-link:hover[b-1v1z0d25i1],
+.nav-scrollable .nav-link:active[b-1v1z0d25i1],
+.nav-scrollable .nav-link:focus[b-1v1z0d25i1] {
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.nav-link[b-1v1z0d25i1] {
+    opacity: .9;
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+    padding: .6rem 1rem;
+    border-radius: .5rem;
+    margin: .25rem .5rem;
+}
+
+    .nav-link:hover[b-1v1z0d25i1] {
+        opacity: 1;
+        background: rgba(255,255,255,.10);
+    }
+
+    .nav-link.active[b-1v1z0d25i1] {
+        color: #fff !important;
+        background: rgba(255,255,255,.18);
+        border-left: 4px solid var(--brand);
+    }
+
+/* Asegura que los hijos (icono/texto) hereden el color */
+.nav-scrollable .nav-link > span[b-1v1z0d25i1] {
+    color: inherit;
+}
+
+/* Mobile: sidebar en overlay */
+@media (max-width:992px) {
+    .nav-scrollable[b-1v1z0d25i1] {
+        width: min(80vw,320px);
+        transform: translateX(-100%);
+    }
+
+    .navbar-toggler-checkbox:checked ~ .nav-scrollable[b-1v1z0d25i1] {
+        transform: translateX(0);
+    }
+}

@@ -1,0 +1,276 @@
+﻿:root {
+    --brand: #25D366;
+    --brand-dark: #128C7E;
+    --brand-legacy: #075E54;
+    
+    --top-h: 56px;
+    --sidebar-w: 280px;
+
+    --bg: #F0F2F5;
+    --surface: #FFFFFF;
+    --text: #0B141A;
+    --text-muted: #5E6A6E;
+    --border: #E6E8EB;
+
+    --success-bg: #D4EDDA;
+    --success-fg: #155724;
+    --warning-bg: #FFF3CD;
+    --warning-fg: #856404;
+    --danger-bg: #F8D7DA;
+    --danger-fg: #721C24;
+
+    --link: #34B7F1;
+    --shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+
+@media (max-width:1200px) {
+    :root {
+        --sidebar-w: 248px;
+    }
+}
+
+@media (max-width:992px) {
+    :root {
+        --sidebar-w: 0px;
+    }
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+
+@media (prefers-reduced-motion:reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+img, svg, canvas, video {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--link);
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+h1:focus {
+    outline: none;
+}
+
+.page {
+    width: 100%;
+    padding-inline: clamp(16px,3vw,32px);
+}
+
+.container-narrow {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+}
+
+.card {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 28px;
+}
+
+    .card h2 {
+        color: var(--brand-dark);
+        margin-bottom: 14px;
+    }
+
+    .card p {
+        color: var(--text-muted);
+    }
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+}
+
+th, td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    background: #F7F9FB;
+    font-weight: 600;
+    color: var(--text);
+}
+
+tr:hover {
+    background: #FAFBFC;
+}
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: .85rem;
+    font-weight: 700;
+    display: inline-block;
+    min-width: 86px;
+    text-align: center;
+}
+
+.badge-success {
+    background: var(--success-bg);
+    color: var(--success-fg);
+}
+
+.badge-warning {
+    background: var(--warning-bg);
+    color: var(--warning-fg);
+}
+
+.badge-danger {
+    background: var(--danger-bg);
+    color: var(--danger-fg);
+}
+
+.btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all .2s;
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+.btn-primary {
+    background: var(--brand);
+    color: #fff;
+    border-color: var(--brand);
+}
+
+    .btn-primary:hover {
+        filter: brightness(.95);
+    }
+
+.btn-outline {
+    background: transparent;
+    border-color: var(--brand);
+    color: var(--brand);
+}
+
+    .btn-outline:hover {
+        background-color: rgba(37,211,102,.10);
+    }
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: var(--text);
+    }
+
+.form-control {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--text);
+}
+
+    .form-control:focus {
+        outline: none;
+        border-color: var(--brand);
+        box-shadow: 0 0 0 2px rgba(37,211,102,.2);
+    }
+
+.radio-group {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+    .radio-group label {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        padding: 8px 12px;
+        border-radius: 8px;
+        background: #F7F9FB;
+        border: 1px solid var(--border);
+    }
+
+.table-stretch {
+    table-layout: fixed;
+    width: 100%;
+}
+
+    .table-stretch th,
+    .table-stretch td {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width:576px) {
+    .table-stretch th,
+    .table-stretch td {
+        white-space: normal;
+        word-break: break-word;
+    }
+}
+
+/* estooooo es el modal error */
+
+.custom-modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    inset: 0;
+    z-index: 1050; 
+}
+
+.custom-modal .modal-dialog {
+    margin: 0 auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.custom-modal .modal-content {
+    border-radius: 0.75rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.custom-modal .modal-header {
+    border-bottom: none;
+}
+
+.custom-modal .modal-footer {
+    border-top: none;
+}

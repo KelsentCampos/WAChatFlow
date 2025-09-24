@@ -1,0 +1,123 @@
+.log-table-wrap[b-7ap3e4s8cm] {
+    max-height: 62vh;
+    overflow: auto;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    background: var(--surface);
+}
+
+.logs-table[b-7ap3e4s8cm] {
+    table-layout: fixed;
+    width: 100%;
+}
+
+    .logs-table thead th[b-7ap3e4s8cm] {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background: #F7F9FB;
+    }
+
+    .logs-table th[b-7ap3e4s8cm], .logs-table td[b-7ap3e4s8cm] {
+        padding: 8px 12px;
+    }
+
+@media (min-width: 992px) {
+    .logs-table th[b-7ap3e4s8cm], .logs-table td[b-7ap3e4s8cm] {
+        padding: 10px 14px;
+    }
+}
+
+.logs-table th:nth-child(1)[b-7ap3e4s8cm],
+.logs-table td:nth-child(1)[b-7ap3e4s8cm] {
+    width: 20ch;
+    white-space: nowrap;
+    color: var(--text-muted);
+}
+
+.logs-table th:nth-child(2)[b-7ap3e4s8cm],
+.logs-table td:nth-child(2)[b-7ap3e4s8cm] {
+    width: 24ch;
+    white-space: nowrap;
+}
+
+.logs-table th:nth-child(3)[b-7ap3e4s8cm],
+.logs-table td:nth-child(3)[b-7ap3e4s8cm] {
+    width: 14ch;
+    white-space: nowrap;
+}
+
+.logs-table th:nth-child(4)[b-7ap3e4s8cm],
+.logs-table td:nth-child(4)[b-7ap3e4s8cm] {
+    width: 14ch;
+    white-space: nowrap;
+}
+
+.logs-table th:nth-child(5)[b-7ap3e4s8cm],
+.logs-table td:nth-child(5)[b-7ap3e4s8cm] {
+    width: auto;
+}
+
+.log-id[b-7ap3e4s8cm] {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    font-size: .9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.logs-table td .btn[b-7ap3e4s8cm] {
+    width: auto;
+    flex: 0 0 auto;
+}
+
+.logs-actions[b-7ap3e4s8cm] {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+
+.badge[b-7ap3e4s8cm] {
+    position: relative;
+    padding-left: 20px;
+}
+
+    .badge[b-7ap3e4s8cm]::before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+
+.badge-success[b-7ap3e4s8cm]::before {
+    background: #28a745;
+}
+
+.badge-warning[b-7ap3e4s8cm]::before {
+    background: #ffc107;
+}
+
+.badge-danger[b-7ap3e4s8cm]::before {
+    background: #dc3545;
+}
+
+.badge-secondary[b-7ap3e4s8cm] {
+    background: #e2e3e5;
+    color: #41464b;
+}
+
+    .badge-secondary[b-7ap3e4s8cm]::before {
+        background: #6c757d;
+    }
+
+@media (max-width: 576px) {
+    .logs-table th[b-7ap3e4s8cm], .logs-table td[b-7ap3e4s8cm] {
+        white-space: normal;
+        word-break: break-word;
+    }
+}

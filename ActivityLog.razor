@@ -1,0 +1,33 @@
+﻿@page "/activity-log"
+@inherits ActivityLogBase
+
+<div class="page">
+    <div class="card">
+        <h2>Registro de Envíos Recientes</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha y Hora</th>
+                        <th>Destinatario</th>
+                        <th>Tipo</th>
+                        <th>Estado</th>
+                        <th>Id Mensaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var log in Logs)
+                    {
+                        <tr>
+                            <td>@log.FechaEnvio.ToString("g")</td>
+                            <td>@log.Destinatario</td>
+                            <td>@log.TipoMensaje</td>
+                            <td><span class="badge @GetBadgeClass(log.Estado)">@log.Estado</span></td>
+                            <td>@log.IdMensaje</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

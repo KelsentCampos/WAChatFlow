@@ -1,0 +1,18 @@
+/* Página Enviar Mensaje: específicos */
+.card h2[b-6ce8ujvs4t] {
+    margin-bottom: 12px;
+}
+
+.actions[b-6ce8ujvs4t] {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.template-preview[b-6ce8ujvs4t] {
+    background: #F7F9FB;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 16px;
+    border-left: 4px solid var(--brand);
+}
